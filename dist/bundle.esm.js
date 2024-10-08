@@ -11,13 +11,16 @@ var StringTemp = /** @class */ (function () {
         return this.string.toUpperCase();
     };
     StringTemp.prototype.capitalizeWords = function () {
-        var eachCap = this.string.split(' ');
-        var arrayWords = [];
-        for (var i = 0; i < eachCap.length; i++) {
-            this.string = eachCap[i];
-            arrayWords.push(this.capitalize());
-        }
-        return arrayWords.join(' ');
+        if (this.string.length === 0)
+            return '';
+        return this.string
+            .split(' ')
+            .map(function (word) {
+            if (word.length === 0)
+                return ''; // Handle empty words
+            return word[0].toUpperCase() + word.slice(1).toLowerCase(); // Capitalize the first letter
+        })
+            .join(' ');
     };
     StringTemp.prototype.removeExtraSpaces = function () {
         var removeSpace = this.string.trim();

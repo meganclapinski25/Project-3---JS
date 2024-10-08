@@ -16,13 +16,14 @@ class StringTemp {
     }
 
     capitalizeWords(): string {
-        const eachCap = this.string.split(' ');
-        const arrayWords: string[] = [];
-        for (let i = 0; i < eachCap.length; i++) {
-            this.string = eachCap[i];
-            arrayWords.push(this.capitalize());
-        }
-        return arrayWords.join(' ');
+        if (this.string.length === 0) return '';
+        return this.string
+            .split(' ')
+            .map(word => {
+                if (word.length === 0) return ''; // Handle empty words
+                return word[0].toUpperCase() + word.slice(1).toLowerCase(); // Capitalize the first letter
+            })
+            .join(' ');
     }
 
     removeExtraSpaces(): string {

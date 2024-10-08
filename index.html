@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Test App String Library</title>
+    <script src="dist/bundle.umd.js"></script>
 </head>
+
 <body>
+    <h2>String Testing Library</h2>
+    <button id="test-button">Run Tests</button>
+    <div id="results"></div>
     
+    <script>
+        const { StringTemp } = MyLibrary;
+
+        document.getElementById('test-button').addEventListener('click', () => {
+            const inputString = "hello world"; // Sample input string
+            const stringTemp = new StringTemp(inputString);
+
+            // Collect results
+            const results = `
+                <p>Capitalize: ${stringTemp.capitalize()}</p>
+                <p>All Caps: ${stringTemp.allCaps()}</p>
+                <p>Capitalize Words: ${stringTemp.capitalizeWords()}</p>
+                <p>Remove Extra Spaces: ${stringTemp.removeExtraSpaces()}</p>
+                <p>Kebob Case: ${stringTemp.kebobCase()}</p>
+                <p>Snake Case: ${stringTemp.snakeCase()}</p>
+                <p>Camel Case: ${stringTemp.camelCase()}</p>
+                <p>Shift: ${stringTemp.shift()}</p>
+                <p>Hash Tags: ${stringTemp.makeHashTag()}</p>
+                <p>Is Empty: ${stringTemp.isEmpty()}</p>
+            `;
+
+            // Display results
+            document.getElementById('results').innerHTML = results;
+        });
+    </script>
 </body>
 </html>
