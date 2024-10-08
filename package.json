@@ -1,0 +1,21 @@
+{
+  "name": "project-3---js",
+  "version": "1.0.0",
+  "description": "Js Library for String",
+  "main": "dist/bundle.umd.js",
+  "module": "dist/bundle.esm.js",
+  "exports": {
+    ".": {
+      "require": "./dist/bundle.umd.js",
+      "import": "./dist/bundle.esm.js"
+    }
+  },
+  "types": "dist/types/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  }
+}
+
